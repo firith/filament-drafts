@@ -16,7 +16,7 @@
 <li
     @class([
         'overflow-hidden border-x-[0.5px] border-gray-200 first:rounded-s-lg first:border-s-0 last:rounded-e-lg last:border-e-0 dark:border-white/10',
-        'focus-within:z-10 focus-within:ring-2 focus-within:ring-primary-600 dark:focus-within:ring-primary-500' => ! $isDisabled,
+        'focus-within:z-10 focus-within:ring-2 focus-within:ring-amber-500 dark:focus-within:ring-amber-400' => ! $isDisabled,
     ])
 >
     <button
@@ -31,7 +31,7 @@
                     'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' => $hasIcon,
                     'text-gray-700 dark:text-gray-200' => $hasLabel && (! ($active || $isDisabled)),
                     'hover:bg-gray-50 dark:hover:bg-white/5' => ! $isDisabled,
-                    'text-primary-600 dark:text-primary-400' => $active,
+                    'text-amber-600 dark:text-amber-400' => $active,
                     'cursor-default' => $separator,
                 ])
         }}

@@ -2,8 +2,8 @@
 
 namespace Guava\FilamentDrafts\Admin\Resources\Pages\List;
 
+use Filament\Schemas\Components\Tabs\Tab;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Resources\Pages\ListRecords\Tab;
 
 trait Draftable
 {

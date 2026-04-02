@@ -24,7 +24,7 @@
                             :disabled="$revision->id === $record->id"
                             wire:click="switchVersion('{{ $resource::getUrl('edit', ['record' => $revision]) }}')"
                         >
-                            {{ $revision->isPublished() ? 'Published' : 'Draft' }}
+                            {{ $revision->isPublished() ? __('filament-drafts::paginator.published') : __('filament-drafts::paginator.draft') }}
                         </x-filament::tabs.item>
                     @endforeach
                 </x-filament::tabs>

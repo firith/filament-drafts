@@ -2,12 +2,14 @@
 
 namespace Guava\FilamentDrafts\Admin\Resources\Pages\Edit;
 
-use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Guava\FilamentDrafts\Admin\Actions\SaveDraftAction;
 use Guava\FilamentDrafts\Admin\Actions\UnpublishAction;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -22,14 +24,13 @@ trait Draftable
 
     public function renderingDraftable(): void
     {
-        Filament::registerRenderHook(
-            'panels::content.end',
-            function () {
-                return view('filament-drafts::filament.revisions-paginator', [
-                    'resource' => $this->getResource(),
-                    'record' => $this->getRecord(),
-                ]);
-            }
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::CONTENT_END,
+            fn (): View => view('filament-drafts::filament.revisions-paginator', [
+                'resource' => $this->getResource(),
+                'record' => $this->getRecord(),
+            ]),
+            scopes: static::class,
         );
     }
 
@@ -85,8 +86,8 @@ trait Draftable
     protected function getSavedNotificationTitle(): ?string
     {
         return $this->shouldSaveAsDraft
-            ? 'Draft saved'
-            : 'Published';
+            ? __('filament-drafts::actions.saved-draft')
+            : __('filament-drafts::actions.published');
     }
 
     protected function getSavedNotification(): ?Notification

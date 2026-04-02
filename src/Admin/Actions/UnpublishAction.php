@@ -2,7 +2,7 @@
 
 namespace Guava\FilamentDrafts\Admin\Actions;
 
-use Filament\Pages\Actions\Action;
+use Filament\Actions\Action;
 
 class UnpublishAction extends Action
 {

@@ -10,6 +10,12 @@ This plugin adds the ability to manage your model's drafts and revisions in your
 
 It's a filament implementation for [Laravel Drafts](https://github.com/oddvalue/laravel-drafts).
 
+## Compatibility
+
+| Plugin version | Filament | Laravel | PHP |
+| --- | --- | --- | --- |
+| `^2.0` | `^4.0` | `^11.28` | `^8.2` |
+| `^1.0` | `^3.0` | Filament v3 compatible | Filament v3 compatible |
 
 
 https://user-images.githubusercontent.com/10926334/230877140-ffaaf03a-5cad-4af5-8600-06dd5ab31e82.mov
@@ -23,6 +29,8 @@ You can install the package with composer:
 ```bash
   composer require guava/filament-drafts
 ```
+
+This major version targets Filament 4. If you need Filament 3 compatibility, stay on the previous plugin major version.
 
 ## Usage
 

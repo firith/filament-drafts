@@ -2,11 +2,10 @@
 
 namespace Guava\FilamentDrafts\Admin\Actions;
 
-use Filament\Pages\Actions\Action;
+use Filament\Actions\Action;
 
 class PublishAction extends Action
 {
-
     public static function getDefaultName(): ?string
     {
         return 'publish';
@@ -22,5 +21,4 @@ class PublishAction extends Action
             ->label(__('filament-drafts::actions.publish'))
         ;
     }
-
 }

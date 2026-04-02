@@ -1,5 +1,6 @@
-@tailwind components;
-@tailwind utilities;
+@config "../../tailwind.config.js";
+@source "../views";
+@import "tailwindcss";
 
 @layer components {
 

@@ -2,14 +2,12 @@
 
 namespace Guava\FilamentDrafts\Admin\Actions;
 
-use Filament\Pages\Actions\Action;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Pages\EditRecord;
-use JetBrains\PhpStorm\NoReturn;
 
 class SaveDraftAction extends Action
 {
-
     public static function getDefaultName(): ?string
     {
         return 'draft';
@@ -38,5 +36,4 @@ class SaveDraftAction extends Action
             $livewire->save();
         }
     }
-
 }

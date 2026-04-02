@@ -2,13 +2,12 @@
 
 namespace Guava\FilamentDrafts;
 
-use Guava\FilamentDrafts\Tables\Http\Livewire\DraftableTable;
 use Guava\FilamentDrafts\Tables\Http\Livewire\RevisionsPaginator;
-use Livewire\Livewire;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentDraftsServiceProvider extends PackageServiceProvider
 {
@@ -22,12 +21,10 @@ class FilamentDraftsServiceProvider extends PackageServiceProvider
             ->hasViews(static::$name);
     }
 
-    public function bootingPackage(): void
+    public function packageBooted(): void
     {
-        parent::bootingPackage();
-
         FilamentAsset::register([
-            Css::make('filament-drafts-styles', __DIR__ . '/../dist/plugin.css'),
+            Css::make('filament-drafts-styles', __DIR__ . '/../dist/plugin.css')->loadedOnRequest(),
         ], package: 'guava/filament-drafts');
 
         Livewire::component('filament-drafts::revisions-paginator', RevisionsPaginator::class);
